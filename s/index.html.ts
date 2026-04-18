@@ -22,7 +22,7 @@ export default template(import.meta.url, async orb => html`
 				themeColor: "#ff9b00",
 				siteName: domain,
 				title: "whenst – when it's happening",
-				description: "shows times in everyone's own local timezone",
+				description: "in your local timezone",
 				image: `https://${domain}${favicon}`,
 			})}
 		</head>
@@ -35,7 +35,7 @@ export default template(import.meta.url, async orb => html`
 
 				<footer>
 					<whenst-timezone></whenst-timezone>
-					<p>learn more on <a href="https://github.com/e280/whenst#readme" target=_blank>github</a></p>
+					<p>learn more about <a href="#/">whenst</a> on <a href="https://github.com/e280/whenst#readme" target=_blank>github</a></p>
 					<p class=version>v${orb.packageVersion()}</p>
 				</footer>
 			</main>

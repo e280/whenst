@@ -8,7 +8,7 @@
 		--bg: #23130e;
 		--link: #4bc1a5;
 		--text: color-mix(in lch, var(--prime), #fff8 50%);
-		--lines: color-mix(in lch, transparent, var(--text) 20%);
+		--lines: color-mix(in lch, transparent, var(--text) 30%);
 		--angry: #f21;
 
 		--logo-color: color-mix(in lch, var(--prime), white 50%);
@@ -87,7 +87,7 @@
 		gap: 2em;
 		text-align: center;
 
-		width: 42em;
+		width: 32em;
 		max-width: 100%;
 
 		whenst-app {
