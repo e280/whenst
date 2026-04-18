@@ -27,7 +27,7 @@
 	},
 	"scripts": {
 		"build": "rm -rf x && mkdir x && tsc && scute -v",
-		"dev": "octo-p 'tsc -w' 'node --watch x/tests.test.js' 'hottie x'",
+		"dev": "octo 'tsc -w' 'node --watch x/tests.test.js' 'scute -wv' 'hottie x'",
 		"test": "node x/tests.test.js",
 		"count": "find s -path '*/_archive' -prune -o -name '*.ts' -exec wc -l {} +"
 	},
