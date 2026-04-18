@@ -9,6 +9,7 @@
 		--link: #4bc1a5;
 		--text: color-mix(in lch, var(--prime), #fff8 50%);
 		--lines: color-mix(in lch, transparent, var(--text) 20%);
+		--angry: #f21;
 
 		--logo-color: color-mix(in lch, var(--prime), white 50%);
 		--logo-text-shadow:

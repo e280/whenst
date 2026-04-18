@@ -3,6 +3,8 @@ import {html} from "lit"
 import {hashSignal, router, shadowElement, useCss, useOnce} from "@e280/sly"
 import themeCss from "../theme.css.js"
 import stylesCss from "./styles.css.js"
+import {fallback} from "../../tools/fallback.js"
+import {ErrorView} from "../pages/error/view.js"
 import {Timelink} from "../../logic/timelink.js"
 import {AuthorView} from "../pages/author/view.js"
 import {WitnessView} from "../pages/witness/view.js"
@@ -22,6 +24,9 @@ export const WhenstApp = shadowElement(() => {
 			? html`<slot></slot>`
 			: null}
 
-		${route($hash())}
+		${fallback(
+			() => route($hash()),
+			() => ErrorView(),
+		)}
 	`
 })
