@@ -1,20 +1,18 @@
 
-import {shadowView} from "@benev/slate"
+import {cycle} from "@e280/stz"
+import {signal} from "@e280/strata"
+import {shadow, useCss, useMount, useName} from "@e280/sly"
 import stylesCss from "./styles.css.js"
 import themeCss from "../../theme.css.js"
 import {calculateCountdown} from "../../../logic/parts/countdown.js"
 
-export const CountdownView = shadowView(use => (time: number) => {
-	use.name("countdown")
-	use.css(themeCss, stylesCss)
+export const CountdownView = shadow(() => (time: number) => {
+	useName("countdown")
+	useCss(themeCss, stylesCss)
 
-	const countdown = calculateCountdown(time)
+	const $countdown = signal(calculateCountdown(time))
+	useMount(() => cycle(async() => void $countdown(calculateCountdown(time))))
 
-	use.mount(() => {
-		const interval = setInterval(() => use.rerender(), 1000)
-		return () => clearInterval(interval)
-	})
-
-	return countdown
+	return $countdown()
 })
 

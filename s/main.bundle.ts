@@ -1,6 +1,10 @@
 
-import {register} from "@benev/slate"
-import {getElements} from "./dom/elements.js"
+import {dom} from "@e280/sly"
+import {WhenstApp} from "./dom/whenst-app/element.js"
+import {WhenstTimezone} from "./dom/whenst-timezone/element.js"
 
-register(getElements())
+dom.register({
+	WhenstApp,
+	WhenstTimezone,
+})
 

@@ -1,5 +1,5 @@
 
-import {shadowComponent} from "@benev/slate"
+import {shadowElement, useCss} from "@e280/sly"
 
 import themeCss from "../theme.css.js"
 import stylesCss from "./styles.css.js"
@@ -10,8 +10,8 @@ import {AuthorView} from "../pages/author/view.js"
 import {WitnessView} from "../pages/witness/view.js"
 import {ErrorSituation, WitnessSituation} from "../../logic/parts/situation.js"
 
-export const WhenstApp = shadowComponent(use => {
-	use.styles(themeCss, stylesCss)
+export const WhenstApp = shadowElement(() => {
+	useCss(themeCss, stylesCss)
 	const situation = context.situation.value
 
 	return (
