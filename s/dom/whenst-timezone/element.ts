@@ -10,6 +10,6 @@ export const WhenstTimezone = shadowElement(() => {
 	const timezone = getLocalTimezone()
 
 	return html`
-		Your local timezone is ${timezone.long} (${timezone.offset})
+		your local timezone is ${timezone.long} (${timezone.offset})
 	`
 })

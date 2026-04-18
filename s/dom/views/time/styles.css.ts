@@ -2,47 +2,36 @@
 import {css} from "lit"
 export default css`
 
-.plate {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 1em;
-
-	> * {
-		flex: 0 1 auto;
-	}
-}
-
 .timeframe {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5em;
+	text-align: center;
+
+	h1 {
+		font-size: 2em;
+		font-weight: normal;
+		color: var(--logo-color);
+		text-shadow: var(--logo-text-shadow);
+	}
 
 	> span {
 		display: flex;
 		flex-direction: column;
 	}
 
-	.casual {
-		font-size: 1.4em;
-		color: var(--prime);
-	}
-
 	.precise {
 		opacity: 0.9;
-		font-size: 0.7em;
 		font-family: monospace;
 		font-weight: normal;
 	}
 }
 
-.preview {
-	flex-grow: 1;
-	flex-basis: 10em;
-	padding-left: 1em;
-	border-left: 0.1em solid color-mix(in lch, transparent, currentColor 20%);
+.markdown {
+	margin-top: 1em;
+	padding: 1em;
+	background: #4442;
+	border: 0.5em solid #4442;
 }
 
 `

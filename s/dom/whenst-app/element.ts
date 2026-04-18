@@ -1,4 +1,5 @@
 
+import {html} from "lit"
 import {hashSignal, router, shadowElement, useCss, useOnce} from "@e280/sly"
 import themeCss from "../theme.css.js"
 import stylesCss from "./styles.css.js"
@@ -16,5 +17,11 @@ export const WhenstApp = shadowElement(() => {
 		"{*}": (_params, string) => WitnessView(Timelink.fromRoute(string)),
 	}))
 
-	return route($hash())
+	return html`
+		${$hash() === ""
+			? html`<slot></slot>`
+			: null}
+
+		${route($hash())}
+	`
 })

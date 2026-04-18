@@ -28,31 +28,29 @@ export const TimeView = shadow((timelink: Timelink) => {
 	const universal = getUniversalTime(timelink.time)
 
 	return html`
-		<div class=plate>
-			<div class=timeframe>
-				<h1 class="local casual">
-					<span>
-						<span class=weekday>${local.weekdayName}</span>
-						<span class=time>${local.hour12}:${local.minutePad} ${local.ampm},</span>
-						<span class=day>${local.monthName} ${local.day}</span>
-					</span>
-				</h1>
-				<span class="local precise" title="${timezone.long} (${timezone.offset})">
-					${timezone.short} ${local.year}-${local.monthPad}-${local.dayPad} ${local.hourPad}:${local.minutePad}
+		<div class=timeframe>
+			<h1 class="local casual">
+				<span>
+					<span class=weekday>${local.weekdayName}</span>
+					<span class=time>${local.hour12}:${local.minutePad} ${local.ampm},</span>
+					<span class=day>${local.monthName} ${local.day}</span>
 				</span>
-				<span class="universal precise">
-					UTC ${universal.year}-${universal.monthPad}-${universal.dayPad} ${universal.hourPad}:${universal.minutePad}
-				</span>
-				<span class=countdown>
-					${CountdownView(timelink.time)}
-				</span>
-			</div>
-
-			${content ? html`
-				<div class=preview theme-markdown>
-					${unsafeHTML(content)}
-				</div>
-			` : undefined}
+			</h1>
+			<span class="local precise" title="${timezone.long} (${timezone.offset})">
+				${timezone.short} ${local.year}-${local.monthPad}-${local.dayPad} ${local.hourPad}:${local.minutePad}
+			</span>
+			<span class="universal precise">
+				UTC ${universal.year}-${universal.monthPad}-${universal.dayPad} ${universal.hourPad}:${universal.minutePad}
+			</span>
+			<span class=countdown>
+				${CountdownView(timelink.time)}
+			</span>
 		</div>
+
+		${content ? html`
+			<div class=markdown theme-markdown>
+				${unsafeHTML(content)}
+			</div>
+		` : undefined}
 	`
 })

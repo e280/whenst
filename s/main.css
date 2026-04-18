@@ -7,6 +7,13 @@
 		--accent: #7d5e38;
 		--bg: #23130e;
 		--link: #4bc1a5;
+		--text: color-mix(in lch, var(--prime), #fff8 50%);
+		--lines: color-mix(in lch, transparent, var(--text) 20%);
+
+		--logo-color: color-mix(in lch, var(--prime), white 50%);
+		--logo-text-shadow:
+			0 0 0.3em color-mix(in lch, transparent, var(--prime) 90%),
+			0 0 1em color-mix(in lch, transparent, var(--prime) 80%);
 	}
 }
 
@@ -82,20 +89,17 @@
 		width: 42em;
 		max-width: 100%;
 
-		h1 {
-			font-size: 3em;
-			color: color-mix(in lch, var(--prime), white 50%);
-			font-weight: normal;
-			text-shadow:
-				0 0 0.3em color-mix(in lch, transparent, var(--prime) 90%),
-				0 0 1em color-mix(in lch, transparent, var(--prime) 80%);
-			a {
-				color: inherit;
+		whenst-app {
+			h1 {
+				font-size: 3em;
+				font-weight: normal;
+				color: var(--logo-color);
+				text-shadow: var(--logo-text-shadow);
 			}
 		}
 		
 		footer {
-			opacity: 0.8;
+			opacity: 0.5;
 
 			display: flex;
 			flex-direction: column;
@@ -108,6 +112,5 @@
 			}
 		}
 	}
-
 }
 

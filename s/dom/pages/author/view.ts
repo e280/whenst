@@ -54,16 +54,16 @@ export const AuthorView = shadow(() => {
 		</section>
 
 		<section>
-			<p>Preview</p>
+			<p>Send link to your friends</p>
 			<div theme-plate>
-				${TimeView(timelink)}
+				<a class=timelink rel="nofollow" target=_blank href="${timelinkUrl}">${timelinkUrl}</a>
 			</div>
 		</section>
 
 		<section>
-			<p>Send link to your friends</p>
+			<p>Preview</p>
 			<div theme-plate>
-				<a class=timelink rel="nofollow" target=_blank href="${timelinkUrl}">${timelinkUrl}</a>
+				${TimeView(timelink)}
 			</div>
 		</section>
 	`

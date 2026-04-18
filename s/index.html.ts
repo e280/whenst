@@ -28,10 +28,14 @@ export default template(import.meta.url, async orb => html`
 		</head>
 		<body>
 			<main>
-				<whenst-app></whenst-app>
+				<whenst-app>
+					<h1>whenst</h1>
+					<p>tell your people when your thing is happening — in their local timezones</p>
+				</whenst-app>
+
 				<footer>
 					<whenst-timezone></whenst-timezone>
-					<p>Learn more on <a href="https://github.com/e280/whenst#readme" target=_blank>GitHub</a></p>
+					<p>learn more on <a href="https://github.com/e280/whenst#readme" target=_blank>github</a></p>
 					<p class=version>v${orb.packageVersion()}</p>
 				</footer>
 			</main>
