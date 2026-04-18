@@ -1,5 +1,5 @@
 
-import {signal} from "@benev/slate"
+import {signal} from "@e280/strata"
 
 import {Router} from "./parts/router.js"
 import {Timelink} from "./parts/timelink.js"
@@ -28,4 +28,3 @@ export class Context {
 }
 
 export const context = new Context()
-

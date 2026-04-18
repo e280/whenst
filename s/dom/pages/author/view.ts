@@ -1,6 +1,7 @@
 
 import {debounce} from "@e280/stz"
-import {html, shadowView} from "@benev/slate"
+import {html} from "lit"
+import {shadow, useCss, useName, useOnce, useSignal} from "@e280/sly"
 
 import stylesCss from "./styles.css.js"
 import themeCss from "../../theme.css.js"
@@ -10,18 +11,18 @@ import {TimeView} from "../../views/time/view.js"
 import {Timelink} from "../../../logic/parts/timelink.js"
 import {AuthorSituation} from "../../../logic/parts/situation.js"
 
-export const AuthorView = shadowView(use => (_situation: AuthorSituation) => {
-	use.name("author")
-	use.css(themeCss, stylesCss)
+export const AuthorView = shadow((_situation: AuthorSituation) => {
+	useName("author")
+	useCss(themeCss, stylesCss)
 
-	const time = use.signal(Date.now())
-	const text = use.signal("")
+	const time = useSignal(Date.now())
+	const text = useSignal("")
 
 	const timelink = new Timelink(time.value, text.value)
 	const timelinkUrl = timelink.toUrl()
 	const remaining = constants.textLimit - text.value.length
 
-	const updateMarkdown = use.once(() => {
+	const updateMarkdown = useOnce(() => {
 		const update = debounce(200, (input: HTMLTextAreaElement) => {
 			text.value = (input.value ?? "").trim()
 		})
@@ -56,7 +57,7 @@ export const AuthorView = shadowView(use => (_situation: AuthorSituation) => {
 		<section>
 			<p>Preview</p>
 			<div theme-plate>
-				${TimeView([timelink])}
+				${TimeView(timelink)}
 			</div>
 		</section>
 
@@ -68,4 +69,3 @@ export const AuthorView = shadowView(use => (_situation: AuthorSituation) => {
 		</section>
 	`
 })
-

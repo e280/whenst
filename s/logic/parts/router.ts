@@ -1,15 +1,14 @@
 
 import {sub} from "@e280/stz"
-import {ev} from "@benev/slate"
 
 export class Router {
 	onChange = sub<[string]>()
 
 	constructor() {
-		ev(window, {hashchange: () => {
+		window.addEventListener("hashchange", () => {
 			this.#cleanup()
 			this.onChange.pub(this.route)
-		}})
+		})
 	}
 
 	get route() {
@@ -35,4 +34,3 @@ export class Router {
 			: hash
 	}
 }
-

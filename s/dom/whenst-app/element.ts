@@ -16,10 +16,9 @@ export const WhenstApp = shadowElement(() => {
 
 	return (
 		(situation instanceof ErrorSituation) ?
-			ErrorView([situation]) :
+			ErrorView(situation) :
 		(situation instanceof WitnessSituation) ?
-			WitnessView([situation]) :
-			AuthorView([situation])
+			WitnessView(situation) :
+			AuthorView(situation)
 	)
 })
-

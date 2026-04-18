@@ -1,5 +1,5 @@
 
-import {css} from "@benev/slate"
+import {css} from "lit"
 export default css`
 
 .plate {
@@ -46,4 +46,3 @@ export default css`
 }
 
 `
-

@@ -6,7 +6,7 @@ import stylesCss from "./styles.css.js"
 import themeCss from "../../theme.css.js"
 import {calculateCountdown} from "../../../logic/parts/countdown.js"
 
-export const CountdownView = shadow(() => (time: number) => {
+export const CountdownView = shadow((time: number) => {
 	useName("countdown")
 	useCss(themeCss, stylesCss)
 
@@ -15,4 +15,3 @@ export const CountdownView = shadow(() => (time: number) => {
 
 	return $countdown()
 })
-

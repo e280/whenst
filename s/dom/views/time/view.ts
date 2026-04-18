@@ -1,6 +1,7 @@
 
 import MarkdownIt from "markdown-it"
-import {html, shadowView} from "@benev/slate"
+import {html} from "lit"
+import {shadow, useCss, useName} from "@e280/sly"
 import {unsafeHTML} from "lit/directives/unsafe-html.js"
 
 import stylesCss from "./styles.css.js"
@@ -14,9 +15,9 @@ import {getLocalTime, getLocalTimezone, getUniversalTime} from "../../../logic/p
 const markdownIt = new MarkdownIt({breaks: true, linkify: true})
 markdownIt.use(linksTargetBlank)
 
-export const TimeView = shadowView(use => (timelink: Timelink) => {
-	use.name("time")
-	use.css(themeCss, stylesCss)
+export const TimeView = shadow((timelink: Timelink) => {
+	useName("time")
+	useCss(themeCss, stylesCss)
 
 	const content = timelink.text
 		? markdownIt.render(timelink.text)
@@ -43,7 +44,7 @@ export const TimeView = shadowView(use => (timelink: Timelink) => {
 					UTC ${universal.year}-${universal.monthPad}-${universal.dayPad} ${universal.hourPad}:${universal.minutePad}
 				</span>
 				<span class=countdown>
-					${CountdownView([timelink.time])}
+					${CountdownView(timelink.time)}
 				</span>
 			</div>
 
@@ -55,4 +56,3 @@ export const TimeView = shadowView(use => (timelink: Timelink) => {
 		</div>
 	`
 })
-
