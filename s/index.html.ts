@@ -30,7 +30,7 @@ export default template(import.meta.url, async orb => html`
 			<main>
 				<whenst-app>
 					<h1>whenst</h1>
-					<p>tell your people when your thing is happening — in their local timezones</p>
+					<p>tell people when your thing is happening — in their local timezones</p>
 				</whenst-app>
 
 				<footer>

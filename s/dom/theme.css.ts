@@ -37,11 +37,9 @@ a {
 [theme-plate] {
 	padding: 1em;
 	--bcolor: color-mix(in lch, transparent, currentColor 10%);
-	border-top: 0.1em solid var(--bcolor);
-	border-bottom: 0.1em solid #0004;
 	box-shadow: 0.2em 0.3em 1em #0004;
-	background: #7c504717;
-	border-radius: 1em;
+	background: #9d675a21;
+	border-radius: 0.3em;
 	-webkit-backdrop-filter: blur(0.4em);
 	backdrop-filter: blur(0.4em);
 }
