@@ -5,9 +5,7 @@ import {shadow, useCss, useName} from "@e280/sly"
 import stylesCss from "./styles.css.js"
 import themeCss from "../../theme.css.js"
 
-import {ErrorSituation} from "../../../logic/parts/situation.js"
-
-export const ErrorView = shadow((_situation: ErrorSituation) => {
+export const ErrorView = shadow(() => {
 	useName("error")
 	useCss(themeCss, stylesCss)
 
@@ -17,3 +15,4 @@ export const ErrorView = shadow((_situation: ErrorSituation) => {
 		<p><a href="#/">Author a new link</a></p>
 	`
 })
+

@@ -1,24 +1,20 @@
 
-import {shadowElement, useCss} from "@e280/sly"
-
+import {hashSignal, router, shadowElement, useCss, useOnce} from "@e280/sly"
 import themeCss from "../theme.css.js"
 import stylesCss from "./styles.css.js"
-
-import {context} from "../../logic/context.js"
-import {ErrorView} from "../pages/error/view.js"
+import {Timelink} from "../../logic/timelink.js"
 import {AuthorView} from "../pages/author/view.js"
 import {WitnessView} from "../pages/witness/view.js"
-import {ErrorSituation, WitnessSituation} from "../../logic/parts/situation.js"
 
 export const WhenstApp = shadowElement(() => {
 	useCss(themeCss, stylesCss)
-	const situation = context.situation.value
 
-	return (
-		(situation instanceof ErrorSituation) ?
-			ErrorView(situation) :
-		(situation instanceof WitnessSituation) ?
-			WitnessView(situation) :
-			AuthorView(situation)
-	)
+	const $hash = useOnce(hashSignal)
+
+	const route = useOnce(() => router({
+		"": () => AuthorView(),
+		"{*}": (_params, string) => WitnessView(Timelink.fromRoute(string)),
+	}))
+
+	return route($hash())
 })

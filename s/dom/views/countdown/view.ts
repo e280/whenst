@@ -4,7 +4,7 @@ import {signal} from "@e280/strata"
 import {shadow, useCss, useMount, useName} from "@e280/sly"
 import stylesCss from "./styles.css.js"
 import themeCss from "../../theme.css.js"
-import {calculateCountdown} from "../../../logic/parts/countdown.js"
+import {calculateCountdown} from "../../../logic/countdown.js"
 
 export const CountdownView = shadow((time: number) => {
 	useName("countdown")

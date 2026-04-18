@@ -1,6 +1,6 @@
 
-import MarkdownIt from "markdown-it"
 import {html} from "lit"
+import MarkdownIt from "markdown-it"
 import {shadow, useCss, useName} from "@e280/sly"
 import {unsafeHTML} from "lit/directives/unsafe-html.js"
 
@@ -8,9 +8,9 @@ import stylesCss from "./styles.css.js"
 import themeCss from "../../theme.css.js"
 
 import {CountdownView} from "../countdown/view.js"
-import {Timelink} from "../../../logic/parts/timelink.js"
+import {Timelink} from "../../../logic/timelink.js"
 import {linksTargetBlank} from "../../../tools/md-links-target-blank.js"
-import {getLocalTime, getLocalTimezone, getUniversalTime} from "../../../logic/parts/timekeeper.js"
+import {getLocalTime, getLocalTimezone, getUniversalTime} from "../../../logic/timekeeper.js"
 
 const markdownIt = new MarkdownIt({breaks: true, linkify: true})
 markdownIt.use(linksTargetBlank)

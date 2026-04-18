@@ -1,6 +1,6 @@
 
-import {debounce} from "@e280/stz"
 import {html} from "lit"
+import {debounce} from "@e280/stz"
 import {shadow, useCss, useName, useOnce, useSignal} from "@e280/sly"
 
 import stylesCss from "./styles.css.js"
@@ -8,10 +8,9 @@ import themeCss from "../../theme.css.js"
 
 import {constants} from "../../../constants.js"
 import {TimeView} from "../../views/time/view.js"
-import {Timelink} from "../../../logic/parts/timelink.js"
-import {AuthorSituation} from "../../../logic/parts/situation.js"
+import {Timelink} from "../../../logic/timelink.js"
 
-export const AuthorView = shadow((_situation: AuthorSituation) => {
+export const AuthorView = shadow(() => {
 	useName("author")
 	useCss(themeCss, stylesCss)
 
