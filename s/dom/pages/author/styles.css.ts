@@ -9,10 +9,6 @@ export default css`
 	gap: 1em;
 }
 
-:host > h2 {
-	color: var(--accent);
-}
-
 section {
 	display: flex;
 	flex-direction: column;
@@ -21,7 +17,8 @@ section {
 
 	width: 100%;
 
-	> p:first-of-type {
+	> h2 {
+		font-size: 1em;
 		opacity: 0.3;
 		padding: 0 1em;
 		text-transform: uppercase;

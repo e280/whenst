@@ -35,7 +35,7 @@ export const AuthorView = shadow(() => {
 
 	return html`
 		<section>
-			<p>Choose time and description</p>
+			<h2>choose time and description</h2>
 			<div theme-plate>
 				<input
 					class="timepicker input"
@@ -54,14 +54,14 @@ export const AuthorView = shadow(() => {
 		</section>
 
 		<section>
-			<p>Send link to your peeps</p>
+			<h2>send link to your peeps</h2>
 			<div theme-plate>
 				<a class=timelink rel="nofollow" target=_blank href="${timelinkUrl}">${timelinkUrl}</a>
 			</div>
 		</section>
 
 		<section>
-			<p>Preview</p>
+			<h2>preview</h2>
 			<div theme-plate>
 				${TimeView($timelink)}
 			</div>
