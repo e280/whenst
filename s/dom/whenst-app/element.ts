@@ -1,5 +1,6 @@
 
 import {html} from "lit"
+import {signal} from "@e280/strata"
 import {hashSignal, router, shadowElement, useCss, useOnce} from "@e280/sly"
 import themeCss from "../theme.css.js"
 import stylesCss from "./styles.css.js"
@@ -16,7 +17,7 @@ export const WhenstApp = shadowElement(() => {
 
 	const route = useOnce(() => router({
 		"": () => AuthorView(),
-		"{*}": (_params, string) => WitnessView(Timelink.fromRoute(string)),
+		"{*}": (_params, string) => WitnessView(signal(Timelink.fromRoute(string))),
 	}))
 
 	return html`
