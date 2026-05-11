@@ -1,7 +1,7 @@
 
 import {template, html, socialCard} from "@e280/scute"
 
-const domain = "whenst.e280.org"
+const domain = "whenst.org"
 const favicon = "/assets/clock-small.png"
 
 export default template(import.meta.url, async orb => html`
