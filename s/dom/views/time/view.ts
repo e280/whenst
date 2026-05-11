@@ -1,7 +1,7 @@
 
 import {html} from "lit"
-import {Signaly} from "@e280/strata"
 import MarkdownIt from "markdown-it"
+import {Valuable} from "@e280/strata"
 import {shadow, useCss, useName} from "@e280/sly"
 import {unsafeHTML} from "lit/directives/unsafe-html.js"
 
@@ -16,7 +16,7 @@ import {getLocalTime, getLocalTimezone, getUniversalTime} from "../../../logic/t
 const markdownIt = new MarkdownIt({breaks: true, linkify: true})
 markdownIt.use(linksTargetBlank)
 
-export const TimeView = shadow(($timelink: Signaly<Timelink>) => {
+export const TimeView = shadow(($timelink: Valuable<Timelink>) => {
 	useName("time")
 	useCss(themeCss, stylesCss)
 

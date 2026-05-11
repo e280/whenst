@@ -16,21 +16,21 @@ export const AuthorView = shadow(() => {
 
 	const $time = useSignal(Date.now())
 	const $text = useSignal("")
-	const $timelink = useDerived(() => new Timelink($time.value, $text.value))
+	const $timelink = useDerived(() => new Timelink($time(), $text()))
 
 	const timelinkUrl = $timelink().toUrl()
-	const remaining = constants.textLimit - $text.value.length
+	const remaining = constants.textLimit - $text().length
 
 	const updateMarkdown = useOnce(() => {
 		const update = debounce(200, (input: HTMLTextAreaElement) => {
-			$text.value = (input.value ?? "").trim()
+			$text((input.value ?? "").trim())
 		})
 		return (event: Event) => update(event.currentTarget as HTMLTextAreaElement)
 	})
 
 	const updateTime = (event: InputEvent) => {
 		const input = event.currentTarget as HTMLInputElement
-		$time.value = new Date(input.value).getTime()
+		$time(new Date(input.value).getTime())
 	}
 
 	return html`
