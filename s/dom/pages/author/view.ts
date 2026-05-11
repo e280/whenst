@@ -54,7 +54,7 @@ export const AuthorView = shadow(() => {
 		</section>
 
 		<section>
-			<h2>send link to your peeps</h2>
+			<h2>send link to your people</h2>
 			<div theme-plate>
 				<a class=timelink rel="nofollow" target=_blank href="${timelinkUrl}">${timelinkUrl}</a>
 			</div>
