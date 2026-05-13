@@ -34,37 +34,26 @@ export const AuthorView = shadow(() => {
 	}
 
 	return html`
-		<section>
-			<h2>choose time and description</h2>
-			<div theme-plate>
-				<input
-					class="timepicker input"
-					type=datetime-local
-					@input="${updateTime}"
-					/>
-				<textarea
-					class="text input"
-					theme-markdown
-					placeholder="short optional markdown description..."
-					maxlength="${constants.textLimit}"
-					@input="${updateMarkdown}"
-				></textarea>
-				<small>${remaining} character${remaining === 1 ?"" :"s"} remaining</small>
-			</div>
+		<section theme-plate>
+			<input
+				class="timepicker input"
+				type=datetime-local
+				@input="${updateTime}"
+				/>
+			<textarea
+				class="text input"
+				theme-markdown
+				placeholder="short optional markdown description..."
+				maxlength="${constants.textLimit}"
+				@input="${updateMarkdown}"
+			></textarea>
+			<small>${remaining} character${remaining === 1 ?"" :"s"} remaining</small>
 		</section>
 
-		<section>
-			<h2>send link to your people</h2>
-			<div theme-plate>
-				<a class=timelink rel="nofollow" target=_blank href="${timelinkUrl}">${timelinkUrl}</a>
-			</div>
+		<section theme-plate>
+			${TimeView($timelink)}
 		</section>
 
-		<section>
-			<h2>preview</h2>
-			<div theme-plate>
-				${TimeView($timelink)}
-			</div>
-		</section>
+		<a class=timelink theme-plate rel="nofollow" target=_blank href="${timelinkUrl}">${timelinkUrl}</a>
 	`
 })

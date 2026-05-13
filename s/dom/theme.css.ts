@@ -38,7 +38,8 @@ a {
 	padding: 1em;
 	--bcolor: color-mix(in lch, transparent, currentColor 10%);
 	box-shadow: 0.2em 0.3em 1em #0004;
-	background: #9d675a21;
+	background: #9d675a11;
+	border: 0.2em solid var(--bcolor);
 	border-radius: 0.3em;
 	-webkit-backdrop-filter: blur(0.4em);
 	backdrop-filter: blur(0.4em);

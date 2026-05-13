@@ -6,7 +6,7 @@ export default css`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 1em;
+	gap: 2em;
 }
 
 section {
@@ -68,9 +68,17 @@ small {
 }
 
 .timelink {
+	display: block;
+	background: color-mix(in oklch, transparent, var(--link) 5%);
+	border-color: color-mix(in oklch, transparent, var(--link) 20%);
+	width: 100%;
+
 	font-family: sans-serif;
 	font-size: 1.3em;
 	word-break: break-all;
+	text-shadow:
+		0 0 1em var(--link),
+		0 0 3em white;
 }
 
 `
