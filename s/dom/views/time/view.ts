@@ -1,6 +1,5 @@
 
 import {html} from "lit"
-import MarkdownIt from "markdown-it"
 import {Valuable} from "@e280/strata"
 import {shadow, useCss, useName} from "@e280/sly"
 import {unsafeHTML} from "lit/directives/unsafe-html.js"
@@ -10,11 +9,8 @@ import themeCss from "../../theme.css.js"
 
 import {CountdownView} from "../countdown/view.js"
 import {Timelink} from "../../../logic/timelink.js"
-import {linksTargetBlank} from "../../../tools/md-links-target-blank.js"
+import {markdown} from "../../../tools/markdown.js"
 import {getLocalTime, getLocalTimezone, getUniversalTime} from "../../../logic/timekeeper.js"
-
-const markdownIt = new MarkdownIt({breaks: true, linkify: true})
-markdownIt.use(linksTargetBlank)
 
 export const TimeView = shadow(($timelink: Valuable<Timelink>) => {
 	useName("time")
@@ -22,7 +18,7 @@ export const TimeView = shadow(($timelink: Valuable<Timelink>) => {
 
 	const timelink = $timelink()
 	const content = timelink.text
-		? markdownIt.render(timelink.text)
+		? markdown(timelink.text)
 		: undefined
 
 	const timezone = getLocalTimezone()
