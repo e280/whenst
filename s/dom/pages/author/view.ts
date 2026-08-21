@@ -9,6 +9,7 @@ import themeCss from "../../theme.css.js"
 import {constants} from "../../../constants.js"
 import {TimeView} from "../../views/time/view.js"
 import {Timelink} from "../../../logic/timelink.js"
+import { stupidDatetimeFormat } from "../../../tools/stupid-datetime-format.js"
 
 export const AuthorView = shadow(() => {
 	useName("author")
@@ -39,6 +40,7 @@ export const AuthorView = shadow(() => {
 				class="timepicker input"
 				type=datetime-local
 				@input="${updateTime}"
+				value="${stupidDatetimeFormat(Date.now())}"
 				/>
 			<textarea
 				class="text input"
@@ -54,6 +56,14 @@ export const AuthorView = shadow(() => {
 			${TimeView($timelink)}
 		</section>
 
-		<a class=timelink theme-plate rel="nofollow" target=_blank href="${timelinkUrl}">${timelinkUrl}</a>
+		<a
+			theme-plate
+			class=timelink
+			rel="nofollow"
+			target=_blank
+			href="${timelinkUrl}">
+			${timelinkUrl}
+		</a>
 	`
 })
+
