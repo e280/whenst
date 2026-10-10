@@ -25,6 +25,10 @@ export default css`
 		font-family: monospace;
 		font-weight: normal;
 	}
+
+	.universal {
+		opacity: 0.5;
+	}
 }
 
 .markdown {
